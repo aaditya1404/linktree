@@ -7,14 +7,23 @@ import LogoutButton from "./buttons/LogoutButton";
 const Header = async () => {
 
     const session = await getServerSession(authOptions);
-    // console.log(SessionContext);
 
     return (
-        <header className="bg-white border-b py-4">
-            <div className="max-w-4xl flex justify-between mx-auto px-6 items-center">
-                <div className="flex gap-6 ">
-                    <Link href={'/'} className="text-blue-600 font-bold text-xl">LinkList</Link>
-                    <nav className="flex gap-4 text-gray-500 text-sm items-center">
+        <header
+            className="bg-white border-b py-4">
+            <div
+                className="max-w-4xl flex justify-between mx-auto px-6 items-center">
+                <div
+                    className="flex gap-6 ">
+                    <Link
+                        href={'/'}
+                        className="text-blue-600 font-bold text-xl"
+                    >
+                        LinkList
+                    </Link>
+                    <nav
+                        className="flex gap-4 text-gray-500 text-sm items-center"
+                    >
                         <Link href={'/about'}>About</Link>
                         <Link href={'/pricing'}>Pricing</Link>
                         <Link href={'/contact'}>Contact</Link>

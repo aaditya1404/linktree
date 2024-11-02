@@ -4,35 +4,9 @@ import { FaLocationDot } from "react-icons/fa6";
 import mongoose from "mongoose";
 import Image from "next/image";
 import Link from "next/link";
-import { FaDiscord, FaFacebook, FaGithub, FaInstagram, FaTelegram, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
-import { IoCall } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { Event } from "@/models/Event";
 
-
-export const buttonsIcons = {
-    email: IoMdMail,
-    mobile: IoCall,
-    instagram: FaInstagram,
-    facebook: FaFacebook,
-    discord: FaDiscord,
-    tiktok: FaTiktok,
-    youtube: FaYoutube,
-    whatsapp: FaWhatsapp,
-    github: FaGithub,
-    telegram: FaTelegram
-}
-
-function buttonLink(key, value) {
-    if (key === 'mobile') {
-        return 'tel:' + value;
-    }
-    if (key === 'email') {
-        return 'mailto:' + value;
-    }
-    return value;
-}
 
 export default async function UserPage({ params }) {
 
@@ -45,7 +19,7 @@ export default async function UserPage({ params }) {
     return (
         <div className="bg-blue-950 text-white min-h-screen">
             <div
-                className="h-36 py-16 flex justify-center items-center bg-cover bg-center"
+                className=" h-52 py-16 flex justify-center items-center bg-cover bg-center"
                 style={
                     page.bgType === 'color'
                         ? { backgroundColor: page.bgColor }
@@ -82,26 +56,16 @@ export default async function UserPage({ params }) {
                     {page.bio}
                 </p>
             </div>
-            <div className="flex gap-2 justify-center mt-6 pb-4">
-                {Object.keys(page.buttons).map(buttonKey => (
-                    <Link
-                        key={buttonKey}
-                        href={buttonLink(buttonKey, page.buttons[buttonKey])}
-                        className="rounded-full border border-white p-2 text-blue-950 flex items-center justify-center"
-                    >
-                    </Link>
-                ))}
-            </div>
             <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
                 {page.links.map(link => (
                     <Link
                         key={link}
                         ping={'/api/click?url=' + btoa(link.url)}
-                        className="bg-indigo-800 p-2 flex"
+                        className="bg-indigo-800  p-2 flex"
                         href={link.url}
                     >
                         <div
-                            className="bg-blue-700 aspect-square relative -left-4 w-16 h-16 overflow-hidden flex items-center justify-center">
+                            className="bg-white relative -left-4 w-16 h-16 overflow-hidden flex items-center justify-center">
                             {link.icon && (
                                 <Image
                                     className="w-full h-full object-cover"
