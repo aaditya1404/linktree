@@ -25,9 +25,9 @@ export default async function UserPage({ params }) {
                     : { backgroundImage: `url(${page.bgImage})` }
             }
         >
-            <div>
+            <div className="h-full ">
                 <div
-                    className=" h-52 flex justify-center items-center bg-cover bg-center"
+                    className="h-52 flex justify-center items-center bg-cover bg-center"
                 >
                 </div>
                 <div className="aspect-square w-28 h-28 mx-auto relative -top-32 -mb-12">
@@ -93,7 +93,7 @@ export default async function UserPage({ params }) {
                 </div>
             </div>
             <div className="flex justify-center">
-                <div className="flex items-center gap-2 bottom-0 absolute text-[#083170] text-sm">
+                <div className="flex items-center gap-1 text-[#083170] text-sm bottom-0">
                     Created with <FaHeart className="text-red-500" /> by {page.displayName}
                 </div>
             </div>
