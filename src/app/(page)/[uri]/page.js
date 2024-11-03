@@ -17,17 +17,26 @@ export default async function UserPage({ params }) {
     await Event.create({ uri: uri, type: 'view' });
 
     return (
-        <div className="bg-blue-950 text-white min-h-screen">
+        // <div className="bg-blue-950 text-white min-h-screen">
+        <div className=" text-white min-h-screen bg-cover bg-center w-full h-full"
+            style={
+                page.bgType === 'color'
+                    ? { backgroundColor: page.bgColor }
+                    : { backgroundImage: `url(${page.bgImage})` }
+            }
+        >
             <div
-                className=" h-52 py-16 flex justify-center items-center bg-cover bg-center"
-                style={
-                    page.bgType === 'color'
-                        ? { backgroundColor: page.bgColor }
-                        : { backgroundImage: `url(${page.bgImage})` }
-                }
+                // className=" h-52 py-16 flex justify-center items-center bg-cover bg-center"
+                className=" h-52 flex justify-center items-center bg-cover bg-center"
+            // style={
+            //     page.bgType === 'color'
+            //         ? { backgroundColor: page.bgColor }
+            //         : { backgroundImage: `url(${page.bgImage})` }
+            // }
             >
             </div>
-            <div className="aspect-square w-36 h-36 mx-auto relative -top-16 -mb-12">
+            {/* <div className="aspect-square w-36 h-36 mx-auto relative -top-32 -mb-12"> */}
+            <div className="aspect-square w-28 h-28 mx-auto relative -top-32 -mb-12">
                 <Image
                     className="rounded-full w-full h-full object-cover"
                     src={user.image}
@@ -37,12 +46,12 @@ export default async function UserPage({ params }) {
                 />
             </div>
             <h2
-                className="text-xl text-center"
+                className="text-xl text-center relative -top-16 text-[#083170] font-bold"
             >
                 {page.displayName}
             </h2>
             <h3
-                className="text-md flex text-center justify-center items-center gap-2 text-white/70"
+                className="text-md flex text-center justify-center items-center gap-2 font-semibold text-[#083170]/70 relative -top-16"
             >
                 <FaLocationDot
                     className=" text-md"
@@ -51,21 +60,24 @@ export default async function UserPage({ params }) {
                     {page.location}
                 </span>
             </h3>
-            <div className="max-w-xs mx-auto text-center">
-                <p>
+            <div className="max-w-xs mx-auto text-center relative -top-16 text-[#083170] font-semibold ">
+                <p >
                     {page.bio}
                 </p>
             </div>
-            <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
+            {/* <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8 relative -top-16"> */}
+            <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8 relative -top-16">
                 {page.links.map(link => (
                     <Link
                         key={link}
                         ping={'/api/click?url=' + btoa(link.url)}
-                        className="bg-indigo-800  p-2 flex"
+                        // className="bg-indigo-800  p-2 flex"
+                        className="bg-white p-2 flex items-center gap-4 rounded-[35px] shadow-2xl "
                         href={link.url}
                     >
                         <div
-                            className="bg-white relative -left-4 w-16 h-16 overflow-hidden flex items-center justify-center">
+                            // className="bg-white relative -left-4 w-16 h-16 overflow-hidden flex items-center justify-center">
+                            className="relative w-8 h-8 overflow-hidden rounded-full flex items-center justify-center">
                             {link.icon && (
                                 <Image
                                     className="w-full h-full object-cover"
@@ -79,10 +91,10 @@ export default async function UserPage({ params }) {
                                 <FaLink className="w-8 h-8" />
                             )}
                         </div>
-                        <div className="flex items-center justify-center shrink grow-0 overflow-hidden">
-                            <div>
+                        <div className="flex items-center justify-center shrink grow-0 overflow-hidden relative top-1">
+                            <div className="text-[#083170]" >
                                 <h3>{link.title}</h3>
-                                <p className="text-white/50 h-6 overflow-hidden">{link.subtitle}</p>
+                                <p className="text-[#083170]/50 h-6 overflow-hidden text-sm relative -top-1">{link.subtitle}</p>
                             </div>
                         </div>
                     </Link>
