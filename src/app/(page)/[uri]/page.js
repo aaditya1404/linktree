@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLink } from "react-icons/fa";
-import { Event } from "@/models/Event";
 import { FaHeart } from "react-icons/fa6";
 
 
@@ -15,7 +14,6 @@ export default async function UserPage({ params }) {
     mongoose.connect(process.env.MONGO_URI);
     const page = await Page.findOne({ uri });
     const user = await User.findOne({ email: page.owner });
-    await Event.create({ uri: uri, type: 'view' });
 
     return (
         <div className=" text-white min-h-screen bg-cover bg-center w-full h-full"

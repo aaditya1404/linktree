@@ -1,8 +1,7 @@
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   weight:['200','300','400','500','600','700','800'],
   subsets: ["latin"]

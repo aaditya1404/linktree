@@ -41,13 +41,6 @@ const UsernameForm = ({ desiredUsername }) => {
           <SubmitButton>
             Claim your Username
           </SubmitButton>
-          {/* <button
-            type="submit"
-            className="bg-blue-500 disabled:bg-blue-300 text-white disabled:text-gray-200 py-2 px-4 block mx-auto w-full"
-          >
-            Claim Username
-          </button> */}
-          {/* At 2:42:00 some changes are been made. Which is not required but if it affects the code then we will change it. */}
         </div>
       </form>
     </div>

@@ -1,18 +1,20 @@
-import { Inter } from "next/font/google";
 import "../globals.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { headers } from "next/headers";
 import AppSideBar from "@/components/layout/AppSideBar";
 import { Toaster } from "react-hot-toast";
 import { Page } from "@/models/Page";
 import { FaLink } from "react-icons/fa6";
 import mongoose from "mongoose";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  subsets: ["latin"]
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +22,6 @@ export const metadata = {
 };
 
 export default async function AppTemplate({ children, ...rest }) {
-
-  const headersList = headers();
-  // const url = headersList.get('next-url');
 
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -34,7 +33,7 @@ export default async function AppTemplate({ children, ...rest }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Toaster />
         <main className="flex min-h-screen">
           <aside className="bg-white w-48 p-4 pt-4 shadow">
@@ -64,9 +63,7 @@ export default async function AppTemplate({ children, ...rest }) {
             </div>
           </aside>
           <div className="grow">
-            {/* <div className="bg-white m-8 p-4 shadow"> */}
             {children}
-            {/* </div> */}
           </div>
         </main>
       </body>
